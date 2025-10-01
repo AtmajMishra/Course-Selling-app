@@ -1,6 +1,8 @@
 const{Router}= require("express");
 const adminRouter=Router();
 const {adminModel}=require("../db")
+//bcrypt, zod and jsonwebtoken
+
 
    adminRouter.post("/signup", function(req, res){
     res.json({message:"siognup endpoint"})
@@ -12,18 +14,18 @@ adminRouter.post("/signin", function(req, res){
 })
 
 
-   adminRouter.post("/", function(req, res){
+   adminRouter.post("/course", function(req, res){
     res.json({message:"siognup endpoint"})
 })
 
 
-adminRouter.put("/", function(req,res)
+adminRouter.put("/course", function(req,res)
 {
     res.json({
         message:"signup endpoint"
     })
 })
-adminRouter.get("/bulk", function(req, res)
+adminRouter.get("/course/bulk", function(req, res)
 {
     res.json({message:"Signup endpoint"})
 })
