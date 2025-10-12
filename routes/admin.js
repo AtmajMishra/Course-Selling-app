@@ -3,8 +3,8 @@ const adminRouter=Router();
 const {adminModel}=require("../db")
 //bcrypt, zod and jsonwebtoken
 const jwt = require("jsonwebtoken");
-const JWT_ADMIN_PASSWORD = "aladdin12342e2323";
-
+const {adminMiddleware}=require("../middleware/admin")
+const{JWT_ADMIN_PASSWORD}=require("../config")
    adminRouter.post("/signup", async function(req, res){
      const { email, password, firstName, lastName } = req.body;
   await adminModel.create({
@@ -45,8 +45,8 @@ adminRouter.post("/signin",async function(req, res){
 })
 
 
-   adminRouter.post("/course", function(req, res){
-    res.json({message:"siognup endpoint"})
+   adminRouter.post("/course",adminMiddleware,  function(req, res){
+   const adminId=req.userId;
 })
 
 
